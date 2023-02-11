@@ -32,8 +32,8 @@ public class SelectraceScreen extends AbstractContainerScreen<SelectraceMenu> {
 		this.y = container.y;
 		this.z = container.z;
 		this.entity = container.entity;
-		this.imageWidth = 176;
-		this.imageHeight = 166;
+		this.imageWidth = 191;
+		this.imageHeight = 110;
 	}
 
 	private static final ResourceLocation texture = new ResourceLocation("mc_monsters:textures/screens/selectrace.png");
@@ -83,35 +83,37 @@ public class SelectraceScreen extends AbstractContainerScreen<SelectraceMenu> {
 	public void init() {
 		super.init();
 		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		this.addRenderableWidget(new Button(this.leftPos + 6, this.topPos + 7, 56, 20, Component.literal("Dragon"), e -> {
+		this.addRenderableWidget(new Button(this.leftPos + 8, this.topPos + 8, 56, 20, Component.literal("Dragon"), e -> {
 			if (true) {
 				McMonstersMod.PACKET_HANDLER.sendToServer(new SelectraceButtonMessage(0, x, y, z));
 				SelectraceButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}));
-		this.addRenderableWidget(new Button(this.leftPos + 123, this.topPos + 7, 40, 20, Component.literal("Cat"), e -> {
+		this.addRenderableWidget(new Button(this.leftPos + 138, this.topPos + 8, 40, 20, Component.literal("Cat"), e -> {
 			if (true) {
 				McMonstersMod.PACKET_HANDLER.sendToServer(new SelectraceButtonMessage(1, x, y, z));
 				SelectraceButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		}));
-		this.addRenderableWidget(new Button(this.leftPos + 6, this.topPos + 34, 51, 20, Component.literal("Ghost"), e -> {
+		this.addRenderableWidget(new Button(this.leftPos + 43, this.topPos + 33, 51, 20, Component.literal("Ghost"), e -> {
 			if (true) {
 				McMonstersMod.PACKET_HANDLER.sendToServer(new SelectraceButtonMessage(2, x, y, z));
 				SelectraceButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
 		}));
-		this.addRenderableWidget(new Button(this.leftPos + 42, this.topPos + 142, 72, 20, Component.literal("EXİT RACE"), e -> {
+		this.addRenderableWidget(new Button(this.leftPos + 63, this.topPos + 83, 72, 20, Component.literal("Exit Race"), e -> {
 			if (true) {
 				McMonstersMod.PACKET_HANDLER.sendToServer(new SelectraceButtonMessage(3, x, y, z));
 				SelectraceButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
 		}));
-		this.addRenderableWidget(new Button(this.leftPos + 105, this.topPos + 34, 56, 20, Component.literal("Shadow"), e -> {
+		this.addRenderableWidget(new Button(this.leftPos + 73, this.topPos + 8, 56, 20, Component.literal("Shadow"), e -> {
 			if (true) {
 				McMonstersMod.PACKET_HANDLER.sendToServer(new SelectraceButtonMessage(4, x, y, z));
 				SelectraceButtonMessage.handleButtonAction(entity, 4, x, y, z);
 			}
+		}));
+		this.addRenderableWidget(new Button(this.leftPos + 103, this.topPos + 33, 51, 20, Component.literal("Golem"), e -> {
 		}));
 	}
 }

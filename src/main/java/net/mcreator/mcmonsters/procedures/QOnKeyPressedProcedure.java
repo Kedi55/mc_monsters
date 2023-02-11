@@ -70,10 +70,15 @@ public class QOnKeyPressedProcedure {
 				});
 			}
 		}
+<<<<<<< Updated upstream
 		if (McMonstersModVariables.MapVariables.get(world).Cat == true) {
 			if (McMonstersModVariables.MapVariables.get(world).qcooldown == false) {
 				McMonstersModVariables.MapVariables.get(world).qcooldown = true;
 				McMonstersModVariables.MapVariables.get(world).syncData(world);
+=======
+		if (McMonstersModVariables.MapVariables.get(world).Shadow == true) {
+			if (McMonstersModVariables.MapVariables.get(world).qcooldown == false) {
+>>>>>>> Stashed changes
 				{
 					Entity _ent = entity;
 					_ent.teleportTo(
@@ -105,7 +110,13 @@ public class QOnKeyPressedProcedure {
 										.getBlockPos().getZ()),
 								_ent.getYRot(), _ent.getXRot());
 				}
+<<<<<<< Updated upstream
 				McMonstersMod.queueServerWork(120, () -> {
+=======
+				McMonstersModVariables.MapVariables.get(world).qcooldown = true;
+				McMonstersModVariables.MapVariables.get(world).syncData(world);
+				McMonstersMod.queueServerWork(140, () -> {
+>>>>>>> Stashed changes
 					McMonstersModVariables.MapVariables.get(world).qcooldown = false;
 					McMonstersModVariables.MapVariables.get(world).syncData(world);
 				});

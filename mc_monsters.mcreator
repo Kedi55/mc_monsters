@@ -209,6 +209,7 @@
       }
     },
     {
+<<<<<<< Updated upstream
       "name": "R1",
       "type": "keybind",
       "sortid": 17,
@@ -230,6 +231,17 @@
             "type": "entity"
           },
           {
+=======
+      "name": "Sgolem",
+      "type": "procedure",
+      "sortid": 16,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sgolem",
+      "metadata": {
+        "dependencies": [
+          {
+>>>>>>> Stashed changes
             "name": "world",
             "type": "world"
           }
@@ -275,7 +287,11 @@
       "value": "false"
     },
     {
+<<<<<<< Updated upstream
       "name": "rcooldown",
+=======
+      "name": "Golem",
+>>>>>>> Stashed changes
       "type": "logic",
       "scope": "map",
       "value": "false"

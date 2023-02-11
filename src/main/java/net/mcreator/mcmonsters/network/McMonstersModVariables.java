@@ -100,7 +100,11 @@ public class McMonstersModVariables {
 		public boolean qcooldown = false;
 		public boolean Shadow = false;
 		public boolean Secim = false;
+<<<<<<< Updated upstream
 		public boolean rcooldown = false;
+=======
+		public boolean Golem = false;
+>>>>>>> Stashed changes
 
 		public static MapVariables load(CompoundTag tag) {
 			MapVariables data = new MapVariables();
@@ -115,7 +119,11 @@ public class McMonstersModVariables {
 			qcooldown = nbt.getBoolean("qcooldown");
 			Shadow = nbt.getBoolean("Shadow");
 			Secim = nbt.getBoolean("Secim");
+<<<<<<< Updated upstream
 			rcooldown = nbt.getBoolean("rcooldown");
+=======
+			Golem = nbt.getBoolean("Golem");
+>>>>>>> Stashed changes
 		}
 
 		@Override
@@ -126,7 +134,11 @@ public class McMonstersModVariables {
 			nbt.putBoolean("qcooldown", qcooldown);
 			nbt.putBoolean("Shadow", Shadow);
 			nbt.putBoolean("Secim", Secim);
+<<<<<<< Updated upstream
 			nbt.putBoolean("rcooldown", rcooldown);
+=======
+			nbt.putBoolean("Golem", Golem);
+>>>>>>> Stashed changes
 			return nbt;
 		}
 
