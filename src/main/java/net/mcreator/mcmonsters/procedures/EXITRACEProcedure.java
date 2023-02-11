@@ -17,8 +17,12 @@ public class EXITRACEProcedure {
 		McMonstersModVariables.MapVariables.get(world).syncData(world);
 		McMonstersModVariables.MapVariables.get(world).qcooldown = true;
 		McMonstersModVariables.MapVariables.get(world).syncData(world);
+		McMonstersModVariables.MapVariables.get(world).rcooldown = true;
+		McMonstersModVariables.MapVariables.get(world).syncData(world);
 		McMonstersMod.queueServerWork(500, () -> {
 			McMonstersModVariables.MapVariables.get(world).qcooldown = false;
+			McMonstersModVariables.MapVariables.get(world).syncData(world);
+			McMonstersModVariables.MapVariables.get(world).rcooldown = false;
 			McMonstersModVariables.MapVariables.get(world).syncData(world);
 		});
 	}

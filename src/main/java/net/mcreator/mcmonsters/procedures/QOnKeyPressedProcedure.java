@@ -3,6 +3,7 @@ package net.mcreator.mcmonsters.procedures;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.GameType;
+import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.entity.projectile.SmallFireball;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.LivingEntity;
@@ -64,6 +65,47 @@ public class QOnKeyPressedProcedure {
 				McMonstersModVariables.MapVariables.get(world).qcooldown = true;
 				McMonstersModVariables.MapVariables.get(world).syncData(world);
 				McMonstersMod.queueServerWork(220, () -> {
+					McMonstersModVariables.MapVariables.get(world).qcooldown = false;
+					McMonstersModVariables.MapVariables.get(world).syncData(world);
+				});
+			}
+		}
+		if (McMonstersModVariables.MapVariables.get(world).Cat == true) {
+			if (McMonstersModVariables.MapVariables.get(world).qcooldown == false) {
+				McMonstersModVariables.MapVariables.get(world).qcooldown = true;
+				McMonstersModVariables.MapVariables.get(world).syncData(world);
+				{
+					Entity _ent = entity;
+					_ent.teleportTo(
+							(entity.level.clip(
+									new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(20)),
+											ClipContext.Block.OUTLINE, ClipContext.Fluid.ANY, entity))
+									.getBlockPos().getX()),
+							(entity.level.clip(
+									new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(20)),
+											ClipContext.Block.OUTLINE, ClipContext.Fluid.ANY, entity))
+									.getBlockPos().getY()),
+							(entity.level.clip(
+									new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(20)),
+											ClipContext.Block.OUTLINE, ClipContext.Fluid.ANY, entity))
+									.getBlockPos().getZ()));
+					if (_ent instanceof ServerPlayer _serverPlayer)
+						_serverPlayer.connection.teleport(
+								(entity.level.clip(
+										new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(20)),
+												ClipContext.Block.OUTLINE, ClipContext.Fluid.ANY, entity))
+										.getBlockPos().getX()),
+								(entity.level.clip(
+										new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(20)),
+												ClipContext.Block.OUTLINE, ClipContext.Fluid.ANY, entity))
+										.getBlockPos().getY()),
+								(entity.level.clip(
+										new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(20)),
+												ClipContext.Block.OUTLINE, ClipContext.Fluid.ANY, entity))
+										.getBlockPos().getZ()),
+								_ent.getYRot(), _ent.getXRot());
+				}
+				McMonstersMod.queueServerWork(120, () -> {
 					McMonstersModVariables.MapVariables.get(world).qcooldown = false;
 					McMonstersModVariables.MapVariables.get(world).syncData(world);
 				});

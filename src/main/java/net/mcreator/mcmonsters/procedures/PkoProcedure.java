@@ -52,7 +52,7 @@ public class PkoProcedure {
 			if (entity instanceof LivingEntity _entity)
 				_entity.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 60, 2, (false), (false)));
 			if (entity instanceof LivingEntity _entity)
-				_entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 60, 1, (false), (false)));
+				_entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 60, 0, (false), (false)));
 		}
 		if (McMonstersModVariables.MapVariables.get(world).Shadow == true) {
 			if (world.getMaxLocalRawBrightness(new BlockPos(x, y, z)) == 15) {

@@ -15,6 +15,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.KeyMapping;
 
+import net.mcreator.mcmonsters.network.R1Message;
 import net.mcreator.mcmonsters.network.QMessage;
 import net.mcreator.mcmonsters.McMonstersMod;
 
@@ -33,10 +34,24 @@ public class McMonstersModKeyMappings {
 			isDownOld = isDown;
 		}
 	};
+	public static final KeyMapping R_1 = new KeyMapping("key.mc_monsters.r_1", GLFW.GLFW_KEY_R, "key.categories.misc") {
+		private boolean isDownOld = false;
+
+		@Override
+		public void setDown(boolean isDown) {
+			super.setDown(isDown);
+			if (isDownOld != isDown && isDown) {
+				McMonstersMod.PACKET_HANDLER.sendToServer(new R1Message(0, 0));
+				R1Message.pressAction(Minecraft.getInstance().player, 0, 0);
+			}
+			isDownOld = isDown;
+		}
+	};
 
 	@SubscribeEvent
 	public static void registerKeyMappings(RegisterKeyMappingsEvent event) {
 		event.register(Q);
+		event.register(R_1);
 	}
 
 	@Mod.EventBusSubscriber({Dist.CLIENT})
@@ -45,6 +60,7 @@ public class McMonstersModKeyMappings {
 		public static void onClientTick(TickEvent.ClientTickEvent event) {
 			if (Minecraft.getInstance().screen == null) {
 				Q.consumeClick();
+				R_1.consumeClick();
 			}
 		}
 	}

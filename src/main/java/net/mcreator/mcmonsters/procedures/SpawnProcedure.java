@@ -25,5 +25,7 @@ public class SpawnProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world) {
 		McMonstersModVariables.MapVariables.get(world).qcooldown = false;
 		McMonstersModVariables.MapVariables.get(world).syncData(world);
+		McMonstersModVariables.MapVariables.get(world).rcooldown = false;
+		McMonstersModVariables.MapVariables.get(world).syncData(world);
 	}
 }

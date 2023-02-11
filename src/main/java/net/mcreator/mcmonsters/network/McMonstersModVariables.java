@@ -100,6 +100,7 @@ public class McMonstersModVariables {
 		public boolean qcooldown = false;
 		public boolean Shadow = false;
 		public boolean Secim = false;
+		public boolean rcooldown = false;
 
 		public static MapVariables load(CompoundTag tag) {
 			MapVariables data = new MapVariables();
@@ -114,6 +115,7 @@ public class McMonstersModVariables {
 			qcooldown = nbt.getBoolean("qcooldown");
 			Shadow = nbt.getBoolean("Shadow");
 			Secim = nbt.getBoolean("Secim");
+			rcooldown = nbt.getBoolean("rcooldown");
 		}
 
 		@Override
@@ -124,6 +126,7 @@ public class McMonstersModVariables {
 			nbt.putBoolean("qcooldown", qcooldown);
 			nbt.putBoolean("Shadow", Shadow);
 			nbt.putBoolean("Secim", Secim);
+			nbt.putBoolean("rcooldown", rcooldown);
 			return nbt;
 		}
 
