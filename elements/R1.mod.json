@@ -1,0 +1,12 @@
+{
+  "_fv": 34,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "R",
+    "keyBindingName": "R",
+    "keyBindingCategoryKey": "misc",
+    "onKeyPressed": {
+      "name": "RP1"
+    }
+  }
+}
